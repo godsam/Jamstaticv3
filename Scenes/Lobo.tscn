@@ -1,44 +1,148 @@
-[gd_scene load_steps=13 format=1]
+[gd_scene load_steps=20 format=1]
 
-[ext_resource path="res://Sprites/carro_alegorico_lobo.tex" type="Texture" id=1]
-[ext_resource path="res://Resources/Boss/Lobo/braço2-1.png" type="Texture" id=2]
-[ext_resource path="res://Resources/Boss/Lobo/braço2-2.png" type="Texture" id=3]
-[ext_resource path="res://Resources/Boss/Lobo/mão2.png" type="Texture" id=4]
-[ext_resource path="res://Resources/Boss/Lobo/corpo.png" type="Texture" id=5]
-[ext_resource path="res://Resources/Boss/Lobo/pescoço.png" type="Texture" id=6]
-[ext_resource path="res://Resources/Boss/Lobo/boca2-2.png" type="Texture" id=7]
-[ext_resource path="res://Resources/Boss/Lobo/boca1-2.png" type="Texture" id=8]
-[ext_resource path="res://Resources/Boss/Lobo/cabeça2.png" type="Texture" id=9]
-[ext_resource path="res://Resources/Boss/Lobo/braço1-2.png" type="Texture" id=10]
-[ext_resource path="res://Resources/Boss/Lobo/mão1.png" type="Texture" id=11]
-[ext_resource path="res://Resources/Boss/Lobo/braço1-1.png" type="Texture" id=12]
+[ext_resource path="res://Scripts/Lobo.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/carro_alegorico_lobo.tex" type="Texture" id=2]
+[ext_resource path="res://Resources/Boss/Lobo/braço2-1.png" type="Texture" id=3]
+[ext_resource path="res://Resources/Boss/Lobo/braço2-2.png" type="Texture" id=4]
+[ext_resource path="res://Resources/Boss/Lobo/mão2.png" type="Texture" id=5]
+[ext_resource path="res://Resources/Boss/Lobo/corpo.png" type="Texture" id=6]
+[ext_resource path="res://Resources/Boss/Lobo/pescoço.png" type="Texture" id=7]
+[ext_resource path="res://Resources/Boss/Lobo/boca2-2.png" type="Texture" id=8]
+[ext_resource path="res://Resources/Boss/Lobo/boca1-2.png" type="Texture" id=9]
+[ext_resource path="res://Resources/Boss/Lobo/cabeça2.png" type="Texture" id=10]
+[ext_resource path="res://Resources/Boss/Lobo/braço1-2.png" type="Texture" id=11]
+[ext_resource path="res://Resources/Boss/Lobo/mão1.png" type="Texture" id=12]
+[ext_resource path="res://Resources/Boss/Lobo/braço1-1.png" type="Texture" id=13]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10.4275 )
+
+[sub_resource type="RectangleShape2D" id=5]
+
+custom_solver_bias = 0.0
+extents = Vector2( 33.281, 5.68895 )
+
+[sub_resource type="Animation" id=2]
+
+resource/name = "bite"
+length = 0.4
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Neck/head/boca2-2:visibility/visible")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.1, 0.2 ),
+"transitions": FloatArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Neck/head/boca1-2:visibility/visible")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0, 0.1, 0.2 ),
+"transitions": FloatArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = {
+"times": FloatArray( 0.4 ),
+"transitions": FloatArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "bite_atach"
+} ]
+}
+
+[sub_resource type="Animation" id=3]
+
+resource/name = "head"
+length = 2.7
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Neck/head:transform/rot")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.7, 1.4, 2.1, 2.7 ),
+"transitions": FloatArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 2.75659, 0.0, -3.46159, 0.0 ]
+}
+
+[sub_resource type="Animation" id=4]
+
+resource/name = "slap"
+length = 0.5
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("RigthArm:transform/rot")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.1, 0.2 ),
+"transitions": FloatArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 29.2439, 0.0 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0.5 ),
+"transitions": FloatArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "on_slap"
+} ]
+}
+
+[sub_resource type="CircleShape2D" id=6]
+
+custom_solver_bias = 0.0
+radius = 21.0404
 
 [node name="Lobo" type="Node2D"]
 
+script/script = ExtResource( 1 )
+
 [node name="carro_alegorico_lobo" type="Sprite" parent="."]
 
+visibility/visible = false
 transform/rot = 2.47848e-06
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
 
 [node name="braço2-1" type="Sprite" parent="."]
 
 transform/pos = Vector2( -25.7621, 8.63141 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 
 [node name="braço2-2" type="Sprite" parent="."]
 
 transform/pos = Vector2( 4.93874, 65.1411 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 
 [node name="mão2" type="Sprite" parent="."]
 
 transform/pos = Vector2( 54.8002, 65.1411 )
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 
 [node name="corpo" type="Sprite" parent="."]
 
 transform/pos = Vector2( -46.0308, -12.4212 )
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 
 [node name="Neck" type="Node2D" parent="."]
 
@@ -46,7 +150,7 @@ transform/pos = Vector2( 1.61464, -17.9614 )
 
 [node name="pescoço" type="Sprite" parent="Neck"]
 
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="head" type="Node2D" parent="Neck"]
 
@@ -56,17 +160,36 @@ transform/pos = Vector2( -1.61464, 17.9614 )
 
 visibility/visible = false
 transform/pos = Vector2( 42.6118, 33.2242 )
-texture = ExtResource( 7 )
+texture = ExtResource( 8 )
 
 [node name="boca1-2" type="Sprite" parent="Neck/head"]
 
 transform/pos = Vector2( 44.8279, 28.576 )
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 
 [node name="cabeça" type="Sprite" parent="Neck/head"]
 
 transform/pos = Vector2( 38.1797, -6.88104 )
-texture = ExtResource( 9 )
+texture = ExtResource( 10 )
+
+[node name="Area" type="Area2D" parent="Neck/head"]
+
+transform/pos = Vector2( 46, 6 )
+input/pickable = true
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 5.98734, 27.5419 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="Shape" type="CollisionShape2D" parent="Neck/head/Area"]
+
+transform/pos = Vector2( 5.98734, 27.5419 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
 
 [node name="RigthArm" type="Node2D" parent="."]
 
@@ -75,16 +198,109 @@ transform/pos = Vector2( -61.6512, 65.925 )
 [node name="braço1-2" type="Sprite" parent="RigthArm"]
 
 transform/pos = Vector2( 37.7811, 0.324127 )
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
 
 [node name="mão1" type="Sprite" parent="RigthArm"]
 
 transform/pos = Vector2( 95.3988, -0.783875 )
-texture = ExtResource( 11 )
+texture = ExtResource( 12 )
+
+[node name="AreaArm" type="Area2D" parent="RigthArm"]
+
+transform/pos = Vector2( 93.0079, -1.19748 )
+input/pickable = true
+shapes/0/shape = SubResource( 5 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, -31.733, 0 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="Shape" type="CollisionShape2D" parent="RigthArm/AreaArm"]
+
+transform/pos = Vector2( -31.733, 0 )
+shape = SubResource( 5 )
+trigger = false
+_update_shape_index = 0
 
 [node name="braço1-1" type="Sprite" parent="."]
 
 transform/pos = Vector2( -49.3549, 8.63141 )
-texture = ExtResource( 12 )
+texture = ExtResource( 13 )
+
+[node name="Anim" type="AnimationPlayer" parent="."]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/bite = SubResource( 2 )
+anims/head = SubResource( 3 )
+anims/slap = SubResource( 4 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = "head"
+
+[node name="Timer" type="Timer" parent="."]
+
+process_mode = 1
+wait_time = 2.0
+one_shot = false
+autostart = false
+
+[node name="AreaHit" type="Area2D" parent="."]
+
+transform/pos = Vector2( 43, 3 )
+input/pickable = true
+shapes/0/shape = SubResource( 6 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, -3.59242, -5.98737 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="Shape" type="CollisionShape2D" parent="AreaHit"]
+
+transform/pos = Vector2( -3.59242, -5.98737 )
+shape = SubResource( 6 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Particles" type="Particles2D" parent="."]
+
+transform/pos = Vector2( 15.5671, -11.376 )
+transform/scale = Vector2( 0.05, 0.05 )
+config/amount = 100
+config/lifetime = 10.0
+config/emit_timeout = 3.0
+config/emitting = false
+config/process_mode = 1
+config/texture = ExtResource( 13 )
+params/direction = 0.0
+params/spread = 180.0
+params/linear_velocity = 200.0
+params/spin_velocity = 10.0
+params/orbit_velocity = 0.0
+params/gravity_direction = 0.0
+params/gravity_strength = 9.0
+params/radial_accel = 0.0
+params/tangential_accel = 0.0
+params/damping = 0.0
+params/initial_angle = 0.0
+params/initial_size = 1.0
+params/final_size = 0.0
+params/hue_variation = 0.0
+params/anim_speed_scale = 1.0
+params/anim_initial_pos = 0.0
+randomness/direction = 1.0
+randomness/initial_angle = 1.0
+
+[connection signal="body_enter" from="Neck/head/Area" to="." method="_on_Area_body_enter"]
+
+[connection signal="body_enter" from="RigthArm/AreaArm" to="." method="_on_AreaArm_body_enter"]
+
+[connection signal="body_enter" from="AreaHit" to="." method="_on_AreaHit_body_enter"]
 
 

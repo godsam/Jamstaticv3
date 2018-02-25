@@ -22,6 +22,20 @@ var anim_fall = false
 
 var preshot = preload("res://Scenes/Shot.tscn")
 
+func on_atached(tipo = 0):
+	if get_node("Sprite").is_flipped_h():
+		get_node(".").move_and_slide(Vector2(1000,0),NORMAL)
+	else:
+		get_node(".").move_and_slide(Vector2(-1000,0),NORMAL)
+	if tipo == 0:
+		print("dano = 1")
+	elif tipo == 1:
+		print("dano = 100")
+	elif tipo == 2:
+		print("dano = 50")
+	elif tipo == 3:
+		print("dano fatal")
+
 func _ready():
 	set_fixed_process(true)
 	randomize()
