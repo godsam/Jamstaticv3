@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=1]
+[gd_scene load_steps=28 format=1]
 
 [ext_resource path="res://Scripts/BossCar.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Carro Alegorico/baixo.png" type="Texture" id=2]
@@ -19,74 +19,80 @@
 [ext_resource path="res://Scenes/Lobo.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Scenes/Arara.tscn" type="PackedScene" id=18]
 
-[sub_resource type="ConvexPolygonShape2D" id=9]
+[sub_resource type="ConvexPolygonShape2D" id=1]
 
 custom_solver_bias = 0.0
 points = Vector2Array( -54.3842, 73.5628, -6.32837, 72.7483, -7.14288, 105.328, -265.341, 225.061 )
 
-[sub_resource type="ConvexPolygonShape2D" id=10]
+[sub_resource type="ConvexPolygonShape2D" id=2]
 
 custom_solver_bias = 0.0
 points = Vector2Array( 169.605, 184.335, 227.435, 184.335, 226.62, 225.061, -265.341, 225.061 )
 
-[sub_resource type="ConvexPolygonShape2D" id=11]
+[sub_resource type="ConvexPolygonShape2D" id=3]
 
 custom_solver_bias = 0.0
 points = Vector2Array( -114.658, 40.9825, -54.3842, 40.168, -54.3842, 73.5628, -265.341, 225.061 )
 
-[sub_resource type="ConvexPolygonShape2D" id=12]
+[sub_resource type="ConvexPolygonShape2D" id=4]
 
 custom_solver_bias = 0.0
 points = Vector2Array( 81.6382, 136.28, 169.605, 136.28, 169.605, 184.335, -265.341, 225.061 )
 
-[sub_resource type="ConvexPolygonShape2D" id=13]
+[sub_resource type="ConvexPolygonShape2D" id=5]
 
 custom_solver_bias = 0.0
 points = Vector2Array( -7.14288, 105.328, 80.8237, 105.328, 81.6382, 136.28, -265.341, 225.061 )
 
-[sub_resource type="ConvexPolygonShape2D" id=14]
+[sub_resource type="ConvexPolygonShape2D" id=6]
 
 custom_solver_bias = 0.0
 points = Vector2Array( -225.43, 21.4344, -115.472, 20.6199, -114.658, 40.9825, -265.341, 225.061 )
 
-[sub_resource type="ConvexPolygonShape2D" id=15]
+[sub_resource type="ConvexPolygonShape2D" id=7]
 
 custom_solver_bias = 0.0
 points = Vector2Array( -226.245, -49.4276, -225.43, 21.4344, -265.341, 225.061, -262.898, -49.4276, -246.607, -60.8306 )
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=8]
 
 custom_solver_bias = 0.0
 extents = Vector2( 38.1702, 7.22936 )
 
+[sub_resource type="SegmentShape2D" id=9]
+
+custom_solver_bias = 0.0
+a = Vector2( 0.519165, -249.072 )
+b = Vector2( 0.6203, 290.675 )
+
 [node name="BossCar" type="KinematicBody2D"]
 
 input/pickable = false
-shapes/0/shape = SubResource( 9 )
+shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, -0.242889, -0.232826 )
 shapes/0/trigger = false
-shapes/1/shape = SubResource( 10 )
+shapes/1/shape = SubResource( 2 )
 shapes/1/transform = Matrix32( 1, 0, 0, 1, -0.242889, -0.232826 )
 shapes/1/trigger = false
-shapes/2/shape = SubResource( 11 )
+shapes/2/shape = SubResource( 3 )
 shapes/2/transform = Matrix32( 1, 0, 0, 1, -0.242889, -0.232826 )
 shapes/2/trigger = false
-shapes/3/shape = SubResource( 12 )
+shapes/3/shape = SubResource( 4 )
 shapes/3/transform = Matrix32( 1, 0, 0, 1, -0.242889, -0.232826 )
 shapes/3/trigger = false
-shapes/4/shape = SubResource( 13 )
+shapes/4/shape = SubResource( 5 )
 shapes/4/transform = Matrix32( 1, 0, 0, 1, -0.242889, -0.232826 )
 shapes/4/trigger = false
-shapes/5/shape = SubResource( 14 )
+shapes/5/shape = SubResource( 6 )
 shapes/5/transform = Matrix32( 1, 0, 0, 1, -0.242889, -0.232826 )
 shapes/5/trigger = false
-shapes/6/shape = SubResource( 15 )
+shapes/6/shape = SubResource( 7 )
 shapes/6/transform = Matrix32( 1, 0, 0, 1, -0.242889, -0.232826 )
 shapes/6/trigger = false
-shapes/7/shape = SubResource( 1 )
+shapes/7/shape = SubResource( 8 )
 shapes/7/transform = Matrix32( 1, 0, 0, 1, 196.502, 7.68413 )
 shapes/7/trigger = false
-shapes/8/shape = SubResource( 1 )
+shapes/8/shape = SubResource( 8 )
 shapes/8/transform = Matrix32( 1, 0, 0, 1, 207.332, -41.0508 )
 shapes/8/trigger = false
 collision/layers = 1
@@ -120,14 +126,14 @@ texture = ExtResource( 4 )
 [node name="Shape1" type="CollisionShape2D" parent="."]
 
 transform/pos = Vector2( 196.502, 7.68413 )
-shape = SubResource( 1 )
+shape = SubResource( 8 )
 trigger = false
 _update_shape_index = 7
 
 [node name="Shape2" type="CollisionShape2D" parent="."]
 
 transform/pos = Vector2( 207.332, -41.0508 )
-shape = SubResource( 1 )
+shape = SubResource( 8 )
 trigger = false
 _update_shape_index = 8
 
@@ -198,5 +204,29 @@ transform/pos = Vector2( -149.078, -48.9862 )
 [node name="Arara" parent="." instance=ExtResource( 18 )]
 
 transform/pos = Vector2( 119.668, -56.5097 )
+
+[node name="Fim" type="Area2D" parent="."]
+
+transform/pos = Vector2( -299.001, -76.0002 )
+input/pickable = true
+shapes/0/shape = SubResource( 9 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="Shape" type="CollisionShape2D" parent="Fim"]
+
+shape = SubResource( 9 )
+trigger = false
+_update_shape_index = 0
+
+[connection signal="defeated" from="Lobo" to="." method="_on_Lobo_defeated"]
+
+[connection signal="defeated" from="Arara" to="." method="_on_Arara_defeated"]
+
+[connection signal="body_enter" from="Fim" to="." method="_on_Fim_body_enter"]
 
 

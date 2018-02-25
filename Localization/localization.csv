@@ -1,5 +1,7 @@
 ﻿id,pt_BR,en
 NEW,"Novo Jogo","New Game"
 TITLE,"Tela de Titulo","Title Screen"
-GAME,"Nome do Jogo","Game Title"
+GAME,"As aventuras de um bêbado no carnaval","The Adventures of a Drunk at Carnival"
 PRESS,"Aperte espaço para jogar","Press space to play"
+WIN,"Você destruiu o carro","You destroyed the car"
+LOSE,"Você falhou no seu objetivo","You failed in your goal"

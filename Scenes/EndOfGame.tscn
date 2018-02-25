@@ -30,17 +30,34 @@ drag_margin/bottom = 0.2
 
 texture = ExtResource( 2 )
 
+[node name="Label" type="Label" parent="Camera"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -153.0
+margin/top = -98.0
+margin/right = 154.0
+margin/bottom = -84.0
+custom_colors/font_color = Color( 1, 0, 0.0234375, 1 )
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
 [node name="Label1" type="Label" parent="Camera"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = -126.0
+margin/left = -155.0
 margin/top = 79.0
-margin/right = -35.0
+margin/right = -64.0
 margin/bottom = 100.0
-custom_colors/font_color = Color( 1, 0.867188, 0, 1 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
 text = "NEW"
 align = 1
 valign = 1
@@ -54,12 +71,65 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = 45.0
+margin/left = 58.0
 margin/top = 79.0
-margin/right = 147.0
+margin/right = 160.0
 margin/bottom = 100.0
-custom_colors/font_color = Color( 0.870588, 0.760784, 0.054902, 1 )
+custom_colors/font_color = Color( 1, 0, 0.0234375, 1 )
 text = "TITLE"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Label3" type="Label" parent="Camera"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -12.0
+margin/top = 79.0
+margin/right = 13.0
+margin/bottom = 100.0
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Label4" type="Label" parent="Camera"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 28.0
+margin/top = 79.0
+margin/right = 53.0
+margin/bottom = 100.0
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+text = ">>"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Label5" type="Label" parent="Camera"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -53.0
+margin/top = 79.0
+margin/right = -28.0
+margin/bottom = 100.0
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+text = "<<"
 align = 1
 valign = 1
 percent_visible = 1.0

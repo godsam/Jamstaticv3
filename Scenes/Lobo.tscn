@@ -2,31 +2,30 @@
 
 [ext_resource path="res://Scripts/Lobo.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/carro_alegorico_lobo.tex" type="Texture" id=2]
-[ext_resource path="res://Resources/Boss/Lobo/braço2-1.png" type="Texture" id=3]
-[ext_resource path="res://Resources/Boss/Lobo/braço2-2.png" type="Texture" id=4]
-[ext_resource path="res://Resources/Boss/Lobo/mão2.png" type="Texture" id=5]
-[ext_resource path="res://Resources/Boss/Lobo/corpo.png" type="Texture" id=6]
-[ext_resource path="res://Resources/Boss/Lobo/pescoço.png" type="Texture" id=7]
-[ext_resource path="res://Resources/Boss/Lobo/boca2-2.png" type="Texture" id=8]
-[ext_resource path="res://Resources/Boss/Lobo/boca1-2.png" type="Texture" id=9]
-[ext_resource path="res://Resources/Boss/Lobo/cabeça2.png" type="Texture" id=10]
-[ext_resource path="res://Resources/Boss/Lobo/braço1-2.png" type="Texture" id=11]
-[ext_resource path="res://Resources/Boss/Lobo/mão1.png" type="Texture" id=12]
-[ext_resource path="res://Resources/Boss/Lobo/braço1-1.png" type="Texture" id=13]
+[ext_resource path="res://Resources/Boss/Lobo2/braço2-1.png" type="Texture" id=3]
+[ext_resource path="res://Resources/Boss/Lobo2/braço2-2.png" type="Texture" id=4]
+[ext_resource path="res://Resources/Boss/Lobo2/mão2.png" type="Texture" id=5]
+[ext_resource path="res://Resources/Boss/Lobo2/corpo.png" type="Texture" id=6]
+[ext_resource path="res://Resources/Boss/Lobo2/pescoço.png" type="Texture" id=7]
+[ext_resource path="res://Resources/Boss/Lobo2/boca2-2.png" type="Texture" id=8]
+[ext_resource path="res://Resources/Boss/Lobo2/boca1-2.png" type="Texture" id=9]
+[ext_resource path="res://Resources/Boss/Lobo2/cabeça2.png" type="Texture" id=10]
+[ext_resource path="res://Resources/Boss/Lobo2/braço1-2.png" type="Texture" id=11]
+[ext_resource path="res://Resources/Boss/Lobo2/mão1.png" type="Texture" id=12]
+[ext_resource path="res://Resources/Boss/Lobo2/braço1-1.png" type="Texture" id=13]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10.4275 )
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
 extents = Vector2( 33.281, 5.68895 )
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=3]
 
-resource/name = "bite"
 length = 0.4
 loop = false
 step = 0.1
@@ -63,9 +62,8 @@ tracks/2/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=4]
 
-resource/name = "head"
 length = 2.7
 loop = true
 step = 0.1
@@ -80,9 +78,8 @@ tracks/0/keys = {
 "values": [ 0.0, 2.75659, 0.0, -3.46159, 0.0 ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=5]
 
-resource/name = "slap"
 length = 0.5
 loop = false
 step = 0.1
@@ -146,6 +143,7 @@ texture = ExtResource( 6 )
 
 [node name="Neck" type="Node2D" parent="."]
 
+editor/display_folded = true
 transform/pos = Vector2( 1.61464, -17.9614 )
 
 [node name="pescoço" type="Sprite" parent="Neck"]
@@ -183,6 +181,7 @@ gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
+collision/mask = 0
 
 [node name="Shape" type="CollisionShape2D" parent="Neck/head/Area"]
 
@@ -209,18 +208,19 @@ texture = ExtResource( 12 )
 
 transform/pos = Vector2( 93.0079, -1.19748 )
 input/pickable = true
-shapes/0/shape = SubResource( 5 )
+shapes/0/shape = SubResource( 2 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, -31.733, 0 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
+collision/layers = 0
 
 [node name="Shape" type="CollisionShape2D" parent="RigthArm/AreaArm"]
 
 transform/pos = Vector2( -31.733, 0 )
-shape = SubResource( 5 )
+shape = SubResource( 2 )
 trigger = false
 _update_shape_index = 0
 
@@ -234,9 +234,9 @@ texture = ExtResource( 13 )
 playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
-anims/bite = SubResource( 2 )
-anims/head = SubResource( 3 )
-anims/slap = SubResource( 4 )
+anims/bite = SubResource( 3 )
+anims/head = SubResource( 4 )
+anims/slap = SubResource( 5 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
@@ -245,12 +245,13 @@ autoplay = "head"
 [node name="Timer" type="Timer" parent="."]
 
 process_mode = 1
-wait_time = 2.0
+wait_time = 3.0
 one_shot = false
 autostart = false
 
 [node name="AreaHit" type="Area2D" parent="."]
 
+editor/display_folded = true
 transform/pos = Vector2( 43, 3 )
 input/pickable = true
 shapes/0/shape = SubResource( 6 )
@@ -260,6 +261,8 @@ gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
+collision/layers = 2
+collision/mask = 0
 
 [node name="Shape" type="CollisionShape2D" parent="AreaHit"]
 
@@ -268,38 +271,11 @@ shape = SubResource( 6 )
 trigger = false
 _update_shape_index = 0
 
-[node name="Particles" type="Particles2D" parent="."]
-
-transform/pos = Vector2( 15.5671, -11.376 )
-transform/scale = Vector2( 0.05, 0.05 )
-config/amount = 100
-config/lifetime = 10.0
-config/emit_timeout = 3.0
-config/emitting = false
-config/process_mode = 1
-config/texture = ExtResource( 13 )
-params/direction = 0.0
-params/spread = 180.0
-params/linear_velocity = 200.0
-params/spin_velocity = 10.0
-params/orbit_velocity = 0.0
-params/gravity_direction = 0.0
-params/gravity_strength = 9.0
-params/radial_accel = 0.0
-params/tangential_accel = 0.0
-params/damping = 0.0
-params/initial_angle = 0.0
-params/initial_size = 1.0
-params/final_size = 0.0
-params/hue_variation = 0.0
-params/anim_speed_scale = 1.0
-params/anim_initial_pos = 0.0
-randomness/direction = 1.0
-randomness/initial_angle = 1.0
-
 [connection signal="body_enter" from="Neck/head/Area" to="." method="_on_Area_body_enter"]
 
 [connection signal="body_enter" from="RigthArm/AreaArm" to="." method="_on_AreaArm_body_enter"]
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 
 [connection signal="body_enter" from="AreaHit" to="." method="_on_AreaHit_body_enter"]
 

@@ -136,6 +136,39 @@ shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
 
+[node name="Label1" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -150.0
+margin/top = -138.0
+margin/right = -29.0
+margin/bottom = -124.0
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Label2" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 30.0
+margin/top = -138.0
+margin/right = 151.0
+margin/bottom = -124.0
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+align = 2
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
 [node name="Camera" type="Camera2D" parent="."]
 
 transform/pos = Vector2( 0.19371, -32 )
@@ -151,10 +184,10 @@ drag_margin/h_enabled = true
 drag_margin/v_enabled = true
 smoothing/enable = false
 smoothing/speed = 5.0
-drag_margin/left = 0.2
-drag_margin/top = 0.2
-drag_margin/right = 0.2
-drag_margin/bottom = 0.2
+drag_margin/left = 0.0
+drag_margin/top = 0.0
+drag_margin/right = 0.0
+drag_margin/bottom = 0.0
 
 [node name="Timer" type="Timer" parent="."]
 
